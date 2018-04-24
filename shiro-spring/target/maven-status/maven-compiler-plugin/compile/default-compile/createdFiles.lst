@@ -1,0 +1,5 @@
+cn\gzsxt\realms\SpringRealm.class
+cn\gzsxt\mapper\UserMapper.class
+cn\gzsxt\entity\User.class
+cn\gzsxt\controller\ShiroController.class
+cn\gzsxt\service\impl\UserServiceImpl.class

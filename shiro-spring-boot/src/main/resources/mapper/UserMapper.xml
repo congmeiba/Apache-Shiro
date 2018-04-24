@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gzsxt.shirospringboot.mapper.UserMapper">
+
+    <select id="findByUser" parameterType="string" resultType="user">
+        SELECT * FROM T_USER WHERE USERNAME = #{value}
+    </select>
+
+    <select id="findByPermission" parameterType="int" resultType="string">
+      select t3.permission from t_user t
+        INNER  join t_user_role t1 on t.id = t1.user_id
+        INNER join t_role_permission t2 on t1.role_id = t2.role_id
+        INNER join t_permission t3 on t2.permission_id = t3.id
+      where t.id = #{value}
+    </select>
+
+
+    <select id="findByPermissionAll" resultType="string">
+        SELECT t.permission from t_permission t
+    </select>
+</mapper>
