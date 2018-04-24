@@ -21,7 +21,6 @@ public class ShiroController {
 
     @RequestMapping("/toLogin")
     public String toLogin(){
-        System.out.println("?");
         return "login";
     }
 

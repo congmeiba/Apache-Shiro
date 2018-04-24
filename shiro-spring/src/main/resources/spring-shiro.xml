@@ -18,6 +18,7 @@
     <!-- ShiroFilterFactoryBean 的bean 名称要和web.xml 过滤器的的filter-name 一样  -->
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager"/>
+        <!-- 访问权限 -->
         <property name="filterChainDefinitions">
             <value>
                 /shiro/login.do=anon
@@ -33,21 +34,7 @@
         <property name="unauthorizedUrl" value="/unauthorized.jsp"/>
     </bean>
 
-
-
-
-
-    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
-          depends-on="lifecycleBeanPostProcessor" />
-    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
-        <property name="securityManager" ref="securityManager" />
-    </bean>
-
-
-    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"></bean>
-
-
-    <!-- -->
+    <!-- SecurityManager关联Realm -->
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
         <property name="realm" ref="springRealm"/>
     </bean>
