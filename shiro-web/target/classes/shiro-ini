@@ -1,3 +1,0 @@
-[main]
-myRealm=cn.gzsxt.realms.MyRealm
-securityManager.realm=$myRealm
